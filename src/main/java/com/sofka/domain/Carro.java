@@ -8,10 +8,13 @@ public class Carro {
     private Conductor conductor;
     private Integer metros;
 
+    private boolean estaEnMarcha;
+
     public Carro(Colores color, String placa, Integer metros){
         this.color = Objects.requireNonNull(color);
         this.metros = Objects.requireNonNull(metros);
         this.placa = Objects.requireNonNull(placa);
+        this.estaEnMarcha = false;
         if (metros < 0){
             throw new IllegalArgumentException("No se pueden tener metros negativos");
         }
@@ -25,15 +28,25 @@ public class Carro {
         this.conductor = Objects.requireNonNull(conductor);
     }
 
+    public void iniciar(){
+        this.estaEnMarcha = true;
+    }
+
     public void aumentarMetro(){
-        this.metros = metros + 1;
+        if (this.estaEnMarcha) {
+            this.metros = metros + 1;
+        }
     }
 
     public double kilometros(){
         return Math.ceil((double) metros/1000);
     }
 
-    public double metros(){
+    public void pararMarcha(){
+        this.estaEnMarcha = false;
+    }
+
+    public Integer metros(){
         return metros;
     }
 
@@ -47,6 +60,9 @@ public class Carro {
 
     public String placa() {
         return placa;
+    }
+    public boolean estaEnMarcha(){
+        return estaEnMarcha;
     }
 
     public enum Colores{

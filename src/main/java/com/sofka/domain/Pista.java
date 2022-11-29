@@ -29,7 +29,7 @@ public class Pista {
         return carriles;
     }
 
-    public void agregarCarroACArril(Integer numeroCarril, Carro carro){
+    public void agregarCarroACarril(Integer numeroCarril, Carro carro){
         carriles.get(numeroCarril).agregarCarro(carro);
     }
 }

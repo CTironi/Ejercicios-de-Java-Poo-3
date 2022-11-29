@@ -1,5 +1,7 @@
 package com.sofka.domain;
 
+import java.util.Random;
+
 public class Conductor extends Jugador{
     private final String id;
     private String nombre;
@@ -10,8 +12,9 @@ public class Conductor extends Jugador{
         this.nombre = nombre;
     }
 
-    public void lanzarDado(){
-        ///TODO: lanzar dado
+    public Integer lanzarDado(){
+        Random r = new Random();
+        return r.nextInt(6)+1;
     }
 
     public void setNombre(String nombre) {
